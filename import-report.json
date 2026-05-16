@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "workbookPath": "DevoDB.xlsx",
+  "generatedAt": "2026-05-16T16:16:19.921Z",
+  "errors": [],
+  "warnings": [],
+  "counts": {
+    "constituencies": 650,
+    "localAuthorities": 382,
+    "constituencyAuthorityLinks": 1154,
+    "devolutionAreas": 21,
+    "authorityDevolutionLinks": 321,
+    "devolvedParliaments": 3,
+    "constituencyDevolvedParliamentLinks": 107,
+    "scores": 24,
+    "sources": 4
+  }
+}
