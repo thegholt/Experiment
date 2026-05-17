@@ -9,7 +9,8 @@
     "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
     "import": "node scripts/import-workbook.mjs",
-    "test": "npm run import && npm run typecheck && npm run lint"
+    "test": "npm run import && npm run typecheck && npm run test:unit && npm run lint",
+    "test:unit": "node --experimental-strip-types --test src/lib/local-authorities.test.ts"
   },
   "repository": {
     "type": "git",

@@ -41,9 +41,11 @@ export function buildCompareRows(scoreDomain: ScoreDomain) {
         arrangements,
         boundaryNote: view.hasMultipleDevolutionAreas
           ? "Spans multiple settlements"
-          : view.hasMultipleLocalAuthorities
+          : view.crossesLocalAuthorityBoundaries
             ? "Spans local authorities"
-            : view.boundaryNote || "",
+            : view.hasMultipleTiersOnly
+              ? "Multiple tiers of local government"
+              : view.boundaryNote || "",
         sortValue: Math.max(...values)
       };
     })
