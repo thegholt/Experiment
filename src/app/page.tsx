@@ -58,10 +58,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      <footer className="border-t border-brand-border bg-white px-6 py-6 text-center text-sm text-brand-deep/60">
-        Prototype using Excel-backed data. Source-backed datasets to follow.
-      </footer>
     </main>
   );
 }
