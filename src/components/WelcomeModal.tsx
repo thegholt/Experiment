@@ -2,7 +2,11 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 
-const WELCOME_MESSAGE = `Love or loathe it; one thing we all agree is that devolution is a mess, different areas get settlements, some have multiple authorities where some have one, who's accountable for anything? Does more politicans equal better services? These a very important questions - we won't answer them here!
+const WELCOME_MESSAGE = `Love or loathe it; one thing we all agree is that devolution is a mess, some areas get treated better than others, some have multiple authorities where some have just one.
+
+Who's accountable for anything?
+
+Does more politicans equal better services? These a very important questions - we won't answer them here!
 
 The purpose of this expirement is to demonstrate how each parliamentary constituency has running it's locally services, how "devolved" it is from Westminster, enjoy!`;
 
