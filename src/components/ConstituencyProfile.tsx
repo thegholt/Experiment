@@ -35,13 +35,16 @@ export function ConstituencyProfile({ view }: { view: ConstituencyView }) {
   ];
 
   return (
-    <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-      <h2 className="text-xl font-semibold text-slate-900">Constituency profile</h2>
-      <dl className="mt-5 grid gap-0 overflow-hidden rounded-lg border border-slate-200 md:grid-cols-2">
+    <section className="card p-6">
+      <h2 className="text-xl font-semibold text-brand-deep">Constituency profile</h2>
+      <dl className="mt-5 grid gap-0 overflow-hidden rounded-lg border border-brand-border md:grid-cols-2">
         {rows.map(([label, value]) => (
-          <div key={label} className="border-b border-slate-200 p-4 last:border-b-0 md:border-r">
-            <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">{label}</dt>
-            <dd className="mt-1 text-sm leading-6 text-slate-800">{value}</dd>
+          <div
+            key={label}
+            className="border-b border-brand-border bg-white p-4 last:border-b-0 odd:bg-brand-tint/40 md:border-r"
+          >
+            <dt className="text-xs font-semibold uppercase tracking-wide text-brand">{label}</dt>
+            <dd className="mt-1 text-sm leading-6 text-brand-deep">{value}</dd>
           </div>
         ))}
       </dl>
