@@ -2,13 +2,15 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 
-const WELCOME_MESSAGE = `Love or loathe it; one thing we all agree is that devolution is a mess, some areas get treated better than others, some have multiple authorities where some have just one.
+const WELCOME_MESSAGE = `Love it or loathe it, devolution in the UK is a bit of a mess.
 
-Who's accountable for anything?
+Some have combined authorities, some have county and district councils, some have one unitary council, and some have a mixture all of these. Scotland, Wales and Northern Ireland have their own devolved institutions. In many places, it is not obvious who is responsible for what.
 
-Does more politicans equal better services? These a very important questions - we won't answer them here!
+This tool is a simple experiment. Search a parliamentary constituency to see which local authorities, combined authorities, mayoralties or devolved institutions sit behind it - and how "devolved" it appears to be from Westminster.
 
-The purpose of this expirement is to demonstrate how each parliamentary constituency has running it's locally services, how "devolved" it is from Westminster, enjoy!`;
+It will not settle the big questions, but it should make the system a little easier to understand.
+
+Enjoy!`;
 
 export function WelcomeModal() {
   const titleId = useId();
