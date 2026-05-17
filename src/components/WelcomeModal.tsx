@@ -1,43 +1,21 @@
 "use client";
 
-import { useEffect, useId, useRef, useState, useSyncExternalStore } from "react";
-
-const STORAGE_KEY = "devocompare-welcome-seen";
+import { useEffect, useId, useRef, useState } from "react";
 
 const WELCOME_MESSAGE = `Love or loathe it; one thing we all agree is that devolution is a mess, different areas get settlements, some have multiple authorities where some have one, who's accountable for anything? Does more politicans equal better services? These a very important questions - we won't answer them here!
 
 The purpose of this expirement is to demonstrate how each parliamentary constituency has running it's locally services, how "devolved" it is from Westminster, enjoy!`;
 
-function readWelcomeSeen(): boolean {
-  try {
-    return localStorage.getItem(STORAGE_KEY) === "1";
-  } catch {
-    return true;
-  }
-}
-
-function subscribeToWelcomeSeen(onStoreChange: () => void) {
-  window.addEventListener("storage", onStoreChange);
-  return () => window.removeEventListener("storage", onStoreChange);
-}
-
 export function WelcomeModal() {
   const titleId = useId();
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [dismissed, setDismissed] = useState(false);
-  const hasSeenWelcome = useSyncExternalStore(
-    subscribeToWelcomeSeen,
-    readWelcomeSeen,
-    () => true
-  );
-
-  const open = !hasSeenWelcome && !dismissed;
 
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
 
-    if (open) {
+    if (!dismissed) {
       if (!dialog.open) dialog.showModal();
       document.body.style.overflow = "hidden";
     } else if (dialog.open) {
@@ -48,18 +26,13 @@ export function WelcomeModal() {
     return () => {
       document.body.style.overflow = "";
     };
-  }, [open]);
+  }, [dismissed]);
 
   function dismiss() {
-    try {
-      localStorage.setItem(STORAGE_KEY, "1");
-    } catch {
-      // Ignore storage failures; still close the modal.
-    }
     setDismissed(true);
   }
 
-  if (!open) return null;
+  if (dismissed) return null;
 
   return (
     <dialog
@@ -95,7 +68,7 @@ export function WelcomeModal() {
             Continue exploring
           </button>
         </div>
-        </div>
+      </div>
     </dialog>
   );
 }
