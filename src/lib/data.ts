@@ -7,6 +7,10 @@ import type {
   LocalAuthority,
   ScoreDomain
 } from "@/lib/types";
+import {
+  crossesLocalAuthorityBoundaries,
+  hasMultipleTiersOnly
+} from "@/lib/local-authorities";
 import { getScoreValue } from "@/lib/scoring";
 
 const data: Dataset = dataset;
@@ -91,6 +95,10 @@ export function constituencyHasMultipleLocalAuthorities(constituencyId: string) 
   return getLocalAuthoritiesForConstituency(constituencyId).length > 1;
 }
 
+export function constituencyCrossesLocalAuthorityBoundaries(constituencyId: string) {
+  return crossesLocalAuthorityBoundaries(getLocalAuthoritiesForConstituency(constituencyId));
+}
+
 export function constituencyHasMultipleDevolutionAreas(constituencyId: string) {
   return getDevolutionAreasForConstituency(constituencyId).length > 1;
 }
@@ -114,6 +122,7 @@ export function getConstituencyView(constituencyId: string): ConstituencyView | 
   const localAuthorities = getLocalAuthoritiesForConstituency(constituencyId);
   const devolutionAreas = getDevolutionAreasForConstituency(constituencyId);
   const devolvedParliament = getDevolvedParliamentForConstituency(constituencyId);
+  const crossesBoundaries = crossesLocalAuthorityBoundaries(localAuthorities);
 
   return {
     id: constituency.id,
@@ -125,6 +134,8 @@ export function getConstituencyView(constituencyId: string): ConstituencyView | 
     devolutionAreas,
     devolvedParliament,
     hasMultipleLocalAuthorities: localAuthorities.length > 1,
+    crossesLocalAuthorityBoundaries: crossesBoundaries,
+    hasMultipleTiersOnly: hasMultipleTiersOnly(localAuthorities),
     hasMultipleDevolutionAreas: devolutionAreas.length > 1,
     primaryScores: devolvedParliament
       ? [devolvedParliament.score]

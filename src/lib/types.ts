@@ -143,6 +143,8 @@ export type ConstituencyView = {
   devolvedParliament?: DevolvedParliamentView;
   boundaryNote?: string;
   hasMultipleLocalAuthorities: boolean;
+  crossesLocalAuthorityBoundaries: boolean;
+  hasMultipleTiersOnly: boolean;
   hasMultipleDevolutionAreas: boolean;
   primaryScores: DevolutionScore[];
 };
