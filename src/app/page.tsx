@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SearchBox } from "@/components/SearchBox";
+import { WelcomeModal } from "@/components/WelcomeModal";
 import { getAllConstituencies } from "@/lib/data";
 
 const cards = [
@@ -15,6 +16,7 @@ export default function Home() {
 
   return (
     <main className="flex-1 bg-brand-tint">
+      <WelcomeModal />
       <section className="page-hero px-6 py-12 text-white sm:py-16">
         <div className="mx-auto max-w-6xl">
           <p className="eyebrow-on-dark">UK devolution policy dashboard</p>
@@ -56,10 +58,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      <footer className="border-t border-brand-border bg-white px-6 py-6 text-center text-sm text-brand-deep/60">
-        Prototype using Excel-backed data. Source-backed datasets to follow.
-      </footer>
     </main>
   );
 }

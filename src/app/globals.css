@@ -56,3 +56,13 @@ a {
   text-transform: uppercase;
   color: rgb(255 255 255 / 0.75);
 }
+
+.welcome-dialog[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-dialog::backdrop {
+  background: rgb(26 26 77 / 0.6);
+}
