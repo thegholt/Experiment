@@ -1,16 +1,58 @@
 @import "tailwindcss";
 
+@theme inline {
+  --color-brand: #5360b5;
+  --color-brand-deep: #1a1a4d;
+  --color-brand-light: #6b75c4;
+  --color-brand-tint: #eef0f8;
+  --color-brand-tint-strong: #dce0f2;
+  --color-brand-border: #c5cae8;
+}
+
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --background: #eef0f8;
+  --foreground: #1a1a4d;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 a {
   text-underline-offset: 3px;
+}
+
+.page-hero {
+  background: linear-gradient(135deg, #1a1a4d 0%, #5360b5 100%);
+}
+
+.card {
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-brand-border, #c5cae8);
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgb(26 26 77 / 0.06);
+}
+
+.card-muted {
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-brand-border, #c5cae8);
+  background: #f8f9fd;
+}
+
+.eyebrow {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6b75c4;
+}
+
+.eyebrow-on-dark {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.75);
 }

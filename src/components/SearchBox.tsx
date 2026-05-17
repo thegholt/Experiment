@@ -27,7 +27,7 @@ export function SearchBox({ constituencies }: { constituencies: Constituency[] }
 
   return (
     <div className="relative">
-      <label htmlFor="constituency-search" className="mb-2 block text-sm font-semibold text-slate-700">
+      <label htmlFor="constituency-search" className="mb-2 block text-sm font-semibold text-brand-deep">
         Search for a parliamentary constituency
       </label>
       <input
@@ -53,11 +53,11 @@ export function SearchBox({ constituencies }: { constituencies: Constituency[] }
           }
         }}
         placeholder="Type a constituency, e.g. Cardiff West or Gravesham"
-        className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-base shadow-sm outline-none transition focus:border-slate-700 focus:ring-2 focus:ring-slate-200"
+        className="w-full rounded-lg border border-brand-border bg-white px-4 py-3 text-base text-brand-deep shadow-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/25"
         autoComplete="off"
       />
       {query.trim() ? (
-        <div className="absolute z-20 mt-2 w-full overflow-hidden rounded-lg border border-slate-200 bg-white shadow-lg">
+        <div className="absolute z-20 mt-2 w-full overflow-hidden rounded-lg border border-brand-border bg-white shadow-lg">
           {results.length ? (
             <ul role="listbox" aria-label="Constituency results">
               {results.map((result, index) => (
@@ -67,17 +67,23 @@ export function SearchBox({ constituencies }: { constituencies: Constituency[] }
                     onMouseDown={(event) => event.preventDefault()}
                     onClick={() => choose(result.id)}
                     className={`flex w-full items-center justify-between px-4 py-3 text-left text-sm ${
-                      index === activeIndex ? "bg-slate-100 text-slate-950" : "text-slate-700"
+                      index === activeIndex
+                        ? "bg-brand text-white"
+                        : "text-brand-deep hover:bg-brand-tint"
                     }`}
                   >
                     <span className="font-medium">{result.name}</span>
-                    <span className="text-xs text-slate-500">{result.country}</span>
+                    <span
+                      className={`text-xs ${index === activeIndex ? "text-white/80" : "text-brand-deep/60"}`}
+                    >
+                      {result.country}
+                    </span>
                   </button>
                 </li>
               ))}
             </ul>
           ) : (
-            <div className="px-4 py-3 text-sm text-slate-600">
+            <div className="px-4 py-3 text-sm text-brand-deep/70">
               No constituencies found. Try a different spelling or postcode-era constituency name.
             </div>
           )}
